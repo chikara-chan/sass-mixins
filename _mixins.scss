@@ -53,13 +53,28 @@ $size-xl: 18px;
     right: nth($list, 2);
     bottom: nth($list, 3);
     left: nth($list, 4);
+  } @else if length($list) == 5 {
+    top: nth($list, 1);
+    right: nth($list, 2);
+    bottom: nth($list, 3);
+    left: nth($list, 4);
+    z-index: nth($list, 5);
   }
 }
 
 @mixin reset-layout() {
   margin: 0;
   padding: 0;
-  line-height: 0;
+  line-height: 1;
+}
+
+@mixin reset-list() {
+  margin-bottom: 0;
+  padding-left: 0;
+
+  & > li {
+    list-style: none;
+  }
 }
 
 @mixin reset-link($hoverColor: null) {
